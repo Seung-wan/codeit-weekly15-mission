@@ -40,7 +40,7 @@
 
 [v] 소셜 로그인에 구글 아이콘 클릭시 ‘https://www.google.com’, 카카오 아이콘 클릭시 ‘https://www.kakaocorp.com/page’로 이동하나요?
 
-[] 로그인/회원가입시 성공 응답으로 받은 accessToken을 로컬 스토리지에 저장하나요?
+[v] 로그인/회원가입시 성공 응답으로 받은 accessToken을 로컬 스토리지에 저장하나요?
 
 [] 로그인/회원가입 페이지에 접근시 로컬 스토리지에 accessToken이 있는 경우 ‘/folder’ 페이지로 이동하나요?
 

@@ -39,15 +39,18 @@ export default function LoginPage() {
       //   }, 1000);
       // });
 
+      // 로그인 api라고 가정
       const result = (await new Promise((resolve) => {
         setTimeout(() => {
           resolve({
             status: '성공',
+            accessToken: 'token',
           });
         }, 1000);
-      })) as { status: string };
+      })) as { status: string; accessToken: string };
 
       if (result.status === '성공') {
+        localStorage.setItem('access-token', result.accessToken);
         push(ROUTE_PATHS.FOLDER);
       }
     } catch (error) {

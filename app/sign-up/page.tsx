@@ -47,11 +47,13 @@ export default function SignUpPage() {
         setTimeout(() => {
           resolve({
             status: '성공',
+            accessToken: 'token',
           });
         }, 1000);
-      })) as { status: string };
+      })) as { status: string; accessToken: string };
 
       if (result.status === '성공') {
+        localStorage.setItem('access-token', result.accessToken);
         push(ROUTE_PATHS.FOLDER);
       }
     } catch (error) {
