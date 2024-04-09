@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 
 import { ROUTE_PATHS } from '../_constants/route';
 import { REGEX } from '../_constants/regex';
+import { useState } from 'react';
 
 interface FieldValues {
   email: string;
@@ -23,6 +24,12 @@ export default function LoginPage() {
   } = useForm<FieldValues>({
     mode: 'onBlur',
   });
+
+  const [passwordType, setPasswordType] = useState('type');
+
+  const handleClickTogglePasswordType = () => {
+    setPasswordType((prev) => (prev === 'type' ? 'password' : 'type'));
+  };
 
   const onSubmit = async () => {
     try {
@@ -68,6 +75,7 @@ export default function LoginPage() {
         <div className="flex flex-col">
           <label htmlFor="email">이메일</label>
           <input
+            type="text"
             id="email"
             className="border h-8 p-4"
             placeholder="이메일을 입력해 주세요."
@@ -85,14 +93,23 @@ export default function LoginPage() {
         </div>
         <div className="flex flex-col">
           <label htmlFor="password">비밀번호</label>
-          <input
-            id="password"
-            className="border h-8 p-4"
-            placeholder="비밀번호를 입력해 주세요."
-            {...register('password', {
-              required: '비밀번호를 입력해주세요.',
-            })}
-          />
+          <div className="relative">
+            <input
+              type={passwordType}
+              id="password"
+              className="border h-8 p-4 w-full"
+              placeholder="비밀번호를 입력해 주세요."
+              {...register('password', {
+                required: '비밀번호를 입력해주세요.',
+              })}
+            />
+            <div
+              onClick={handleClickTogglePasswordType}
+              className="absolute top-1/2 right-4 -translate-y-1/2"
+            >
+              눈알 아이콘
+            </div>
+          </div>
           {errors.password?.message && (
             <div className="text-red-800">{errors.password?.message}</div>
           )}

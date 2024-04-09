@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 
 import { ROUTE_PATHS } from '../_constants/route';
 import { REGEX } from '../_constants/regex';
+import { useState } from 'react';
 
 interface FieldValues {
   email: string;
@@ -25,6 +26,12 @@ export default function SignUpPage() {
   } = useForm<FieldValues>({
     mode: 'onBlur',
   });
+
+  const [passwordType, setPasswordType] = useState('type');
+
+  const handleClickTogglePasswordType = () => {
+    setPasswordType((prev) => (prev === 'type' ? 'password' : 'type'));
+  };
 
   const onSubmit = async () => {
     try {
@@ -70,6 +77,7 @@ export default function SignUpPage() {
           <label htmlFor="email">이메일</label>
           <input
             id="email"
+            type="text"
             className="border h-8 p-4"
             placeholder="이메일을 입력해 주세요."
             {...register('email', {
@@ -86,26 +94,35 @@ export default function SignUpPage() {
         </div>
         <div className="flex flex-col">
           <label htmlFor="password">비밀번호</label>
-          <input
-            id="password"
-            className="border h-8 p-4"
-            placeholder="영문, 숫자를 조합해 8자 이상 입력해 주세요."
-            {...register('password', {
-              required: '비밀번호를 입력해주세요.',
-              minLength: {
-                value: 8,
-                message: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
-              },
-              validate: {
-                hasNumbers: (value) =>
-                  !REGEX.ONLY_NUMBER.test(value) ||
-                  '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
-                hasStrings: (value) =>
-                  !REGEX.ONLY_STRING.test(value) ||
-                  '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
-              },
-            })}
-          />
+          <div className="relative">
+            <input
+              id="password"
+              type={passwordType}
+              className="border h-8 p-4 w-full"
+              placeholder="영문, 숫자를 조합해 8자 이상 입력해 주세요."
+              {...register('password', {
+                required: '비밀번호를 입력해주세요.',
+                minLength: {
+                  value: 8,
+                  message: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+                },
+                validate: {
+                  hasNumbers: (value) =>
+                    !REGEX.ONLY_NUMBER.test(value) ||
+                    '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+                  hasStrings: (value) =>
+                    !REGEX.ONLY_STRING.test(value) ||
+                    '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+                },
+              })}
+            />
+            <div
+              onClick={handleClickTogglePasswordType}
+              className="absolute top-1/2 right-4 -translate-y-1/2"
+            >
+              눈알 아이콘
+            </div>
+          </div>
 
           {errors.password?.message && (
             <div className="text-red-800">{errors.password?.message}</div>
