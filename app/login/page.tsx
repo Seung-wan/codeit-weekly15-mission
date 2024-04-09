@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
 import { ROUTE_PATHS } from '../_constants/route';
+import { useRouter } from 'next/navigation';
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&â€™*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -14,6 +15,8 @@ interface FieldValues {
 }
 
 export default function LoginPage() {
+  const { push } = useRouter();
+
   const {
     formState: { errors },
     setError,
@@ -25,11 +28,23 @@ export default function LoginPage() {
 
   const onSubmit = async () => {
     try {
-      const result = await new Promise((_, reject) => {
+      // const result = await new Promise((_, reject) => {
+      //   setTimeout(() => {
+      //     reject(new Error('실패'));
+      //   }, 1000);
+      // });
+
+      const result = (await new Promise((resolve) => {
         setTimeout(() => {
-          reject(new Error('실패'));
+          resolve({
+            status: '성공',
+          });
         }, 1000);
-      });
+      })) as { status: string };
+
+      if (result.status === '성공') {
+        push(ROUTE_PATHS.FOLDER);
+      }
     } catch (error) {
       setError('email', {
         message: '이메일을 확인해주세요. (로그인 실패시 에러메시지)',

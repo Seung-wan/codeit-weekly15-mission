@@ -12,7 +12,7 @@
 
 [v] 로그인 버튼 클릭 또는 Enter키 입력으로 로그인 실행 되나요?
 
-[] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sign-in”으로 { “email”: “test@codeit.com”, “password”: “sprint101” } POST 요청해서 성공 응답을 받으면 “/folder”로 이동하나요?
+[v] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sign-in”으로 { “email”: “test@codeit.com”, “password”: “sprint101” } POST 요청해서 성공 응답을 받으면 “/folder”로 이동하나요?
 
 [] “회원 가입하기”를 클릭하면 ‘/signin’ 페이지로 이동하나요?
 
