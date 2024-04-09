@@ -1,7 +1,25 @@
+'use client';
+
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+
 import { ROUTE_PATHS } from '../_constants/route';
 
+interface FieldValues {
+  email: string;
+  password: string;
+}
+
+// 이메일 input에서 focus out 할 때, 값이 없을 경우 아래에 “이메일을 입력해주세요.” 에러 메세지가 보이나요?
+
 export default function LoginPage() {
+  const {
+    formState: { errors },
+    register,
+  } = useForm<FieldValues>({
+    mode: 'onBlur',
+  });
+
   return (
     <div className="w-[400px] mx-auto pt-[238px]">
       <div>
@@ -19,7 +37,11 @@ export default function LoginPage() {
             id="email"
             className="border h-8 p-4"
             placeholder="이메일을 입력해 주세요."
+            {...register('email', { required: '이메일을 입력해주세요.' })}
           />
+          {errors.email?.message && (
+            <div className="text-red-800">{errors.email?.message}</div>
+          )}
         </div>
 
         <div className="flex flex-col">
