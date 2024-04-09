@@ -52,14 +52,19 @@ export default function LoginPage() {
             <div className="text-red-800">{errors.email?.message}</div>
           )}
         </div>
-
         <div className="flex flex-col">
           <label htmlFor="password">비밀번호</label>
           <input
             id="password"
             className="border h-8 p-4"
             placeholder="비밀번호를 입력해 주세요."
+            {...register('password', {
+              required: '비밀번호를 입력해주세요.',
+            })}
           />
+          {errors.password?.message && (
+            <div className="text-red-800">{errors.password?.message}</div>
+          )}
         </div>
 
         <button
