@@ -16,7 +16,7 @@
 
 [v] “회원 가입하기”를 클릭하면 ‘/signin’ 페이지로 이동하나요?
 
-[] 이메일 input에 placeholder는 “이메일을 입력해 주세요.”, 비밀번호 input에 placeholder는 “영문, 숫자를 조합해 8자 이상 입력해 주세요. ”비밀번호 확인 input에 placeholder는 “비밀번호와 일치하는 값을 입력해 주세요.”가 보이나요?
+[v] 이메일 input에 placeholder는 “이메일을 입력해 주세요.”, 비밀번호 input에 placeholder는 “영문, 숫자를 조합해 8자 이상 입력해 주세요. ”비밀번호 확인 input에 placeholder는 “비밀번호와 일치하는 값을 입력해 주세요.”가 보이나요?
 
 [] 이메일 input에서 focus out 할 때, 값이 없을 경우 “이메일을 입력해주세요.” 에러 메세지가 보이나요?
 

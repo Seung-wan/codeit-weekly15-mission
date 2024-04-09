@@ -89,7 +89,7 @@ export default function SignUpPage() {
           <input
             id="password"
             className="border h-8 p-4"
-            placeholder="비밀번호를 입력해 주세요."
+            placeholder="영문, 숫자를 조합해 8자 이상 입력해 주세요."
             {...register('password', {
               required: '비밀번호를 입력해주세요.',
             })}
@@ -103,7 +103,7 @@ export default function SignUpPage() {
           <input
             id="password"
             className="border h-8 p-4"
-            placeholder="비밀번호 확인을 입력해 주세요."
+            placeholder="비밀번호와 일치하는 값을 입력해 주세요."
             {...register('passwordConfirm', {
               required: '비밀번호 확인을 입력해주세요.',
             })}
