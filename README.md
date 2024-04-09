@@ -14,7 +14,7 @@
 
 [v] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sign-in”으로 { “email”: “test@codeit.com”, “password”: “sprint101” } POST 요청해서 성공 응답을 받으면 “/folder”로 이동하나요?
 
-[] “회원 가입하기”를 클릭하면 ‘/signin’ 페이지로 이동하나요?
+[v] “회원 가입하기”를 클릭하면 ‘/signin’ 페이지로 이동하나요?
 
 [] 이메일 input에 placeholder는 “이메일을 입력해 주세요.”, 비밀번호 input에 placeholder는 “영문, 숫자를 조합해 8자 이상 입력해 주세요. ”비밀번호 확인 input에 placeholder는 “비밀번호와 일치하는 값을 입력해 주세요.”가 보이나요?
 
