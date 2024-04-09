@@ -18,6 +18,7 @@ export default function SignUpPage() {
 
   const {
     formState: { errors },
+    getValues,
     setError,
     handleSubmit,
     register,
@@ -119,6 +120,15 @@ export default function SignUpPage() {
             placeholder="비밀번호와 일치하는 값을 입력해 주세요."
             {...register('passwordConfirm', {
               required: '비밀번호 확인을 입력해주세요.',
+              validate: {
+                passwordAndPasswordConfirmDifferent: (value) => {
+                  const formValues = getValues();
+
+                  if (value !== formValues.password) {
+                    return '비밀번호가 일치하지 않아요.';
+                  }
+                },
+              },
             })}
           />
           {errors.passwordConfirm?.message && (
