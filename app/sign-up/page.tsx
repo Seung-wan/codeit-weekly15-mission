@@ -92,8 +92,21 @@ export default function SignUpPage() {
             placeholder="영문, 숫자를 조합해 8자 이상 입력해 주세요."
             {...register('password', {
               required: '비밀번호를 입력해주세요.',
+              minLength: {
+                value: 8,
+                message: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+              },
+              validate: {
+                hasNumbers: (value) =>
+                  !REGEX.ONLY_NUMBER.test(value) ||
+                  '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+                hasStrings: (value) =>
+                  !REGEX.ONLY_STRING.test(value) ||
+                  '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+              },
             })}
           />
+
           {errors.password?.message && (
             <div className="text-red-800">{errors.password?.message}</div>
           )}
