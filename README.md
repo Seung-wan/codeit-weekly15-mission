@@ -10,7 +10,7 @@
 
 [v] 로그인 실패하는 경우, 이메일 input 아래에 “이메일을 확인해주세요.”, 비밀번호 input 아래에 “비밀번호를 확인해주세요.” 에러 메세지가 보이나요?
 
-[] 로그인 버튼 클릭 또는 Enter키 입력으로 로그인 실행 되나요?
+[v] 로그인 버튼 클릭 또는 Enter키 입력으로 로그인 실행 되나요?
 
 [] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sign-in”으로 { “email”: “test@codeit.com”, “password”: “sprint101” } POST 요청해서 성공 응답을 받으면 “/folder”로 이동하나요?
 

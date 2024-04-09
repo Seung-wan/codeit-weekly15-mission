@@ -50,6 +50,7 @@ export default function LoginPage() {
         </div>
       </div>
 
+      {/* form의 onSubmit 이벤트, button의 submit 타입을 활용했기 때문에 엔터키 + 버튼 클릭으로 폼이 제출됩니다. */}
       <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
           <label htmlFor="email">이메일</label>
