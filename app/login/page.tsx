@@ -13,15 +13,32 @@ interface FieldValues {
   password: string;
 }
 
-// 이메일 input에서 focus out 할 때, 값이 없을 경우 아래에 “이메일을 입력해주세요.” 에러 메세지가 보이나요?
-
 export default function LoginPage() {
   const {
     formState: { errors },
+    setError,
+    handleSubmit,
     register,
   } = useForm<FieldValues>({
     mode: 'onBlur',
   });
+
+  const onSubmit = async () => {
+    try {
+      const result = await new Promise((_, reject) => {
+        setTimeout(() => {
+          reject(new Error('실패'));
+        }, 1000);
+      });
+    } catch (error) {
+      setError('email', {
+        message: '이메일을 확인해주세요. (로그인 실패시 에러메시지)',
+      });
+      setError('password', {
+        message: '비밀번호를 확인해주세요. (로그인 실패시 에러메시지)',
+      });
+    }
+  };
 
   return (
     <div className="w-[400px] mx-auto pt-[238px]">
@@ -33,7 +50,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <form className="mt-4">
+      <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
           <label htmlFor="email">이메일</label>
           <input
