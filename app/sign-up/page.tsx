@@ -28,29 +28,26 @@ export default function SignUpPage() {
 
   const onSubmit = async () => {
     try {
-      // const result = await new Promise((_, reject) => {
-      //   setTimeout(() => {
-      //     reject(new Error('실패'));
-      //   }, 1000);
-      // });
-
-      const result = (await new Promise((resolve) => {
+      const result = await new Promise((_, reject) => {
         setTimeout(() => {
-          resolve({
-            status: '성공',
-          });
+          reject(new Error('이미 존재하는 계정입니다.'));
         }, 1000);
-      })) as { status: string };
+      });
 
-      if (result.status === '성공') {
-        push(ROUTE_PATHS.FOLDER);
-      }
+      // const result = (await new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       status: '성공',
+      //     });
+      //   }, 1000);
+      // })) as { status: string };
+
+      // if (result.status === '성공') {
+      //   push(ROUTE_PATHS.FOLDER);
+      // }
     } catch (error) {
       setError('email', {
-        message: '이메일을 확인해주세요. (로그인 실패시 에러메시지)',
-      });
-      setError('password', {
-        message: '비밀번호를 확인해주세요. (로그인 실패시 에러메시지)',
+        message: '다른 이메일을 입력해주세요. (회원가입 실패시 에러메시지)',
       });
     }
   };
