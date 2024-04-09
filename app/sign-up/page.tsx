@@ -27,10 +27,10 @@ export default function SignUpPage() {
     mode: 'onBlur',
   });
 
-  const [passwordType, setPasswordType] = useState('type');
+  const [passwordType, setPasswordType] = useState('text');
 
   const handleClickTogglePasswordType = () => {
-    setPasswordType((prev) => (prev === 'type' ? 'password' : 'type'));
+    setPasswordType((prev) => (prev === 'text' ? 'password' : 'text'));
   };
 
   const onSubmit = async () => {
@@ -120,7 +120,7 @@ export default function SignUpPage() {
               onClick={handleClickTogglePasswordType}
               className="absolute top-1/2 right-4 -translate-y-1/2"
             >
-              눈알 아이콘
+              {passwordType === 'text' ? '사선이 없는 눈' : '사선 있는 눈'}
             </div>
           </div>
 
