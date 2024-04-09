@@ -126,8 +126,20 @@ export default function LoginPage() {
       <div className="flex justify-between mt-4">
         <div>소셜 로그인</div>
         <div className="flex gap-2">
-          <div>구글 아이콘</div>
-          <div>카카오톡 아이콘</div>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            구글 아이콘
+          </a>
+          <a
+            href="https://www.kakaocorp.com/page"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            카카오톡 아이콘
+          </a>
         </div>
       </div>
     </div>

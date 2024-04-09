@@ -38,7 +38,7 @@
 
 [v] 비밀번호의 문자열이 가려질 때는 눈 모양 아이콘에는 사선이 그어져있고, 비밀번호의 문자열이 보일 때는 사선이 없는 눈 모양 아이콘이 보이나요?
 
-[] 소셜 로그인에 구글 아이콘 클릭시 ‘https://www.google.com’, 카카오 아이콘 클릭시 ‘https://www.kakaocorp.com/page’로 이동하나요?
+[v] 소셜 로그인에 구글 아이콘 클릭시 ‘https://www.google.com’, 카카오 아이콘 클릭시 ‘https://www.kakaocorp.com/page’로 이동하나요?
 
 [] 로그인/회원가입시 성공 응답으로 받은 accessToken을 로컬 스토리지에 저장하나요?
 
