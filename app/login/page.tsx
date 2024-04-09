@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form';
 
 import { ROUTE_PATHS } from '../_constants/route';
 
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&â€™*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 interface FieldValues {
   email: string;
   password: string;
@@ -37,7 +40,13 @@ export default function LoginPage() {
             id="email"
             className="border h-8 p-4"
             placeholder="이메일을 입력해 주세요."
-            {...register('email', { required: '이메일을 입력해주세요.' })}
+            {...register('email', {
+              required: '이메일을 입력해주세요.',
+              pattern: {
+                value: EMAIL_REGEX,
+                message: '올바른 이메일 주소가 아닙니다.',
+              },
+            })}
           />
           {errors.email?.message && (
             <div className="text-red-800">{errors.email?.message}</div>
