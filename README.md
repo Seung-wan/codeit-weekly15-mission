@@ -30,7 +30,7 @@
 
 [v] 회원가입 버튼 클릭 또는 Enter키 입력으로 회원가입 실행 되나요?
 
-[] 이메일 중복 확인은 “/api/check-email” POST 요청해서 확인 할 수 있나요?
+[v] 이메일 중복 확인은 “/api/check-email” POST 요청해서 확인 할 수 있나요?
 
 [] 유효한 회원가입 형식의 경우 “/api/sign-up” POST 요청하고 성공 응답을 받으면 “/folder”로 이동하나요?
 

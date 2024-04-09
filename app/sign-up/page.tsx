@@ -28,6 +28,7 @@ export default function SignUpPage() {
 
   const onSubmit = async () => {
     try {
+      // 이메일 중복 확인 api라고 가정
       const result = await new Promise((_, reject) => {
         setTimeout(() => {
           reject(new Error('이미 존재하는 계정입니다.'));
